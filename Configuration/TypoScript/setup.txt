@@ -1,0 +1,46 @@
+plugin.tx_dhfeeds {
+	view {
+		templateRootPath = {$plugin.tx_dhfeeds.view.templateRootPath}
+		partialRootPath = {$plugin.tx_dhfeeds.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_dhfeeds.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_dhfeeds.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_dhfeeds._CSS_DEFAULT_STYLE (
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-dh-feeds table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-dh-feeds table th {
+		font-weight:bold;
+	}
+
+	.tx-dh-feeds table td {
+		vertical-align:top;
+	}
+)
+
+ # Module configuration
+module.tx_dhfeeds {
+	persistence {
+		storagePid = {$module.tx_dhfeeds.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_dhfeeds.view.templateRootPath}
+		partialRootPath = {$module.tx_dhfeeds.view.partialRootPath}
+		layoutRootPath = {$module.tx_dhfeeds.view.layoutRootPath}
+	}
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'dh_feeds'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+            
+			<label index="tx_dhfeeds_domain_model_tweet">Tweet</label>
+			<label index="tx_dhfeeds_domain_model_tweet.username">Username</label>
+			<label index="tx_dhfeeds_domain_model_tweet.time">Time</label>
+			<label index="tx_dhfeeds_domain_model_tweet.content">Content</label>
+
+		</languageKey>
+	</data>
+</T3locallang>

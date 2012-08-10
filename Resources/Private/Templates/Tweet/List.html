@@ -1,0 +1,17 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+<h1><f:translate key="latestTweets" /></h1>
+
+<f:flashMessages />
+
+	<f:for each="{tweets}" as="tweet">
+		<article>
+			<td><f:link.action action="show" arguments="{tweet : tweet}"> {tweet.username}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{tweet : tweet}"> {tweet.time -> f:format.date()}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{tweet : tweet}"> {tweet.content}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{tweet : tweet}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{tweet : tweet}">Delete</f:link.action></td>
+		</article>
+	</f:for>
+</f:section>
