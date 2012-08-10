@@ -1,0 +1,13 @@
+{
+    "name": "subugoe/dh_feeds",
+    "description": "Twitter & RSS style feeds",
+    "authors": [
+        {
+            "name": "Ingo Pfennigstorf",
+            "email": "i.pfennigstorf@gmail.com"
+        }
+    ],
+    "require": {
+	"simplepie/simplepie": "*"
+    }
+}

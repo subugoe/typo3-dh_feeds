@@ -1,17 +1,21 @@
+{namespace dariah = Dariah\DhFeeds\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="main">
-<h1><f:translate key="latestTweets" /></h1>
-
-<f:flashMessages />
-
-	<f:for each="{tweets}" as="tweet">
-		<article>
-			<td><f:link.action action="show" arguments="{tweet : tweet}"> {tweet.username}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{tweet : tweet}"> {tweet.time -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{tweet : tweet}"> {tweet.content}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{tweet : tweet}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{tweet : tweet}">Delete</f:link.action></td>
-		</article>
+	<f:for each="{tweets}" as="tweet" iteration="tweetIterator">
+		<f:if condition="{tweetIterator.cycle} <= {maxItems}">
+			<article>
+				<span class="user">
+					<f:link.external uri="http://twitter.com/{tweet.username}" title="{tweet.name}"><img src="{tweet.image}" alt="" class="profileImage"/></f:link.external>
+					<f:link.external uri="http://twitter.com/{tweet.username}" title="{tweet.name}" class="realName">{tweet.realName}</f:link.external><br />
+					<f:link.external uri="http://twitter.com/{tweet.username}" title="{tweet.name}" class="userName">@{tweet.username}</f:link.external>
+				</span>
+				<p class="tweetContent"><dariah:urlLinker text="{tweet.content}" /><br />
+					<small><f:format.date format="d.m.Y H:i">{tweet.time}</f:format.date></small>
+				</p>
+			</article>
+			</f:if>
 	</f:for>
+	<a href="https://twitter.com/DARIAHeu" class="twitter-follow-button" data-dnt="true">Follow @DARIAHeu</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </f:section>

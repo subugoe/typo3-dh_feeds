@@ -1,0 +1,29 @@
+.tx-dh-feeds {
+	float: left;
+	article {
+		float: left;
+	}
+	.blogDate {
+		float: right;
+	}
+	.userName {
+		font-size: 80%;
+		padding-top: 0.5em;
+	}
+	.realName {
+		font-weight: bold;
+	}
+	.realName, .userName {
+		float: left;
+		margin-left: 10px;
+		text-decoration: none;
+	}
+	.profileImage {
+		float: left;
+		width: auto;
+	}
+	.tweetContent {
+		float: left;
+		margin-top: 0.5em;
+	}
+}

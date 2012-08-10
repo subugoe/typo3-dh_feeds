@@ -1,0 +1,37 @@
+/* line 1, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds {
+  float: left;
+}
+/* line 3, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds article {
+  float: left;
+}
+/* line 6, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds .blogDate {
+  float: right;
+}
+/* line 9, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds .userName {
+  font-size: 80%;
+  padding-top: 0.5em;
+}
+/* line 13, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds .realName {
+  font-weight: bold;
+}
+/* line 16, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds .realName, .tx-dh-feeds .userName {
+  float: left;
+  margin-left: 10px;
+  text-decoration: none;
+}
+/* line 21, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds .profileImage {
+  float: left;
+  width: auto;
+}
+/* line 25, ../../Private/Scss/dh_feeds.scss */
+.tx-dh-feeds .tweetContent {
+  float: left;
+  margin-top: 0.5em;
+}

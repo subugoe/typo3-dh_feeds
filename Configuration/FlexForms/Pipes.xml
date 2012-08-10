@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<ROOT>
+		<el>
+			<settings.numberOfElements>
+				<TCEforms>
+					<exclude>1</exclude>
+					<label>Number of items to show</label>
+					<config>
+						<type>input</type>
+						<size>2</size>
+						<max>2</max>
+						<eval>int</eval>
+					</config>
+				</TCEforms>
+			</settings.numberOfElements>
+		</el>
+	</ROOT>
+</T3DataStructure>

@@ -3,38 +3,20 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-Tx_Extbase_Utility_Extension::registerPlugin(
-	$_EXTKEY,
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Dariah.' . $_EXTKEY,
 	'Twitter',
 	'Twitter'
 );
 
-if (TYPO3_MODE === 'BE') {
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Dariah.' . $_EXTKEY,
+	'Pipes',
+	'Pipes'
+);
 
-	/**
-	 * Registers a Backend Module
-	 */
-	Tx_Extbase_Utility_Extension::registerModule(
-		$_EXTKEY,
-		'web',	 // Make module a submodule of 'web'
-		'feeds',	// Submodule key
-		'',						// Position
-		array(
-			'Tweet' => 'list',
-		),
-		array(
-			'access' => 'user,group',
-			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
-			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_feeds.xml',
-		)
-	);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Web 2.0 Feeds');
 
-}
-
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Web 2.0 Feeds');
-
-t3lib_extMgm::addLLrefForTCAdescr('tx_dhfeeds_domain_model_tweet', 'EXT:dh_feeds/Resources/Private/Language/locallang_csh_tx_dhfeeds_domain_model_tweet.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_dhfeeds_domain_model_tweet');
 $TCA['tx_dhfeeds_domain_model_tweet'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:dh_feeds/Resources/Private/Language/locallang_db.xml:tx_dhfeeds_domain_model_tweet',
@@ -57,9 +39,23 @@ $TCA['tx_dhfeeds_domain_model_tweet'] = array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'username,time,content,',
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Tweet.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_dhfeeds_domain_model_tweet.gif'
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Tweet.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_dhfeeds_domain_model_tweet.gif'
 	),
 );
+
+// add flexform for pipes
+$pluginName = 'Pipes';
+$extensionName = \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY);
+$pluginSignature = strtolower($extensionName) . '_' . strtolower($pluginName);
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/Pipes.xml');
+
+// add flexform for Tweets
+$pluginName = 'Twitter';
+$extensionName = \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY);
+$pluginSignature = strtolower($extensionName) . '_' . strtolower($pluginName);
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/Pipes.xml');
 
 ?>

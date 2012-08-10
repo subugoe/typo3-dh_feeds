@@ -1,0 +1,16 @@
+{namespace dariah = Dariah\DhFeeds\ViewHelpers}
+<f:layout name="Default" />
+<f:section name="main">
+	<f:for each="{pipes}" as="pipe" iteration="pipeIterator">
+		<article>
+			<h3><f:link.external uri="{pipe.url}">{pipe.title}</f:link.external></h3>
+			<p>
+				<f:if condition="{pipe.content}">
+					<f:format.crop maxCharacters="200" respectWordBoundaries="TRUE" append=" …" respectHtml="FALSE">{pipe.content -> f:format.stripTags()}</f:format.crop>
+					<br />
+				</f:if>
+				<small class="blogDate"><dariah:domain url="{pipe.url}" /> <f:format.date format="d.m.Y">{pipe.time}</f:format.date></small>
+			</p>
+		</article>
+	</f:for>
+</f:section>

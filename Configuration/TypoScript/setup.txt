@@ -11,36 +11,21 @@ plugin.tx_dhfeeds {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
-}
-
-plugin.tx_dhfeeds._CSS_DEFAULT_STYLE (
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	.tx-dh-feeds table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-dh-feeds table th {
-		font-weight:bold;
-	}
-
-	.tx-dh-feeds table td {
-		vertical-align:top;
-	}
-)
-
- # Module configuration
-module.tx_dhfeeds {
-	persistence {
-		storagePid = {$module.tx_dhfeeds.persistence.storagePid}
-	}
-	view {
-		templateRootPath = {$module.tx_dhfeeds.view.templateRootPath}
-		partialRootPath = {$module.tx_dhfeeds.view.partialRootPath}
-		layoutRootPath = {$module.tx_dhfeeds.view.layoutRootPath}
+	settings {
+		twitter {
+			auth {
+				consumerKey = {$plugin.tx_dhfeeds.settings.twitter.auth.consumerKey}
+				consumerSecret = {$plugin.tx_dhfeeds.settings.twitter.auth.consumerSecret}
+				oauthToken = {$plugin.tx_dhfeeds.settings.twitter.auth.oauthToken}
+				oauthToken_secret = {$plugin.tx_dhfeeds.settings.twitter.auth.oauthToken_secret}
+			}
+			listId = {$plugin.tx_dhfeeds.settings.twitter.listId}
+		}
+		blogs {
+			# always in this format: identifier = feedUrl
+			feeds {
+				# 1 = http://www.dancohen.org/feed/
+			}
+		}
 	}
 }

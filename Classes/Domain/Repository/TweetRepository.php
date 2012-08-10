@@ -1,5 +1,5 @@
 <?php
-
+namespace Dariah\DhFeeds\Domain\Repository;
 /***************************************************************
  *  Copyright notice
  *
@@ -25,13 +25,9 @@
  ***************************************************************/
 
 /**
- *
- *
- * @package dh_feeds
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
+ * Repository for Tweets
  */
-class Tx_DhFeeds_Domain_Repository_TweetRepository extends Tx_Extbase_Persistence_Repository {
+class TweetRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 }
 ?>

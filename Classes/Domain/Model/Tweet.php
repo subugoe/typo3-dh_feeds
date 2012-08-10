@@ -1,4 +1,5 @@
 <?php
+namespace Dariah\DhFeeds\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -26,12 +27,8 @@
 
 /**
  *
- *
- * @package dh_feeds
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  */
-class Tx_DhFeeds_Domain_Model_Tweet extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tweet extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 
 	/**
 	 * username
@@ -39,6 +36,16 @@ class Tx_DhFeeds_Domain_Model_Tweet extends Tx_Extbase_DomainObject_AbstractEnti
 	 * @var string
 	 */
 	protected $username;
+
+	/**
+	 * @var string
+	 */
+	protected $image;
+
+	/**
+	 * @var string
+	 */
+	protected $realName;
 
 	/**
 	 * time
@@ -109,6 +116,34 @@ class Tx_DhFeeds_Domain_Model_Tweet extends Tx_Extbase_DomainObject_AbstractEnti
 	 */
 	public function setContent($content) {
 		$this->content = $content;
+	}
+
+	/**
+	 * @param string $image
+	 */
+	public function setImage($image) {
+		$this->image = $image;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
+	/**
+	 * @param string $realName
+	 */
+	public function setRealName($realName) {
+		$this->realName = $realName;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRealName() {
+		return $this->realName;
 	}
 
 }
