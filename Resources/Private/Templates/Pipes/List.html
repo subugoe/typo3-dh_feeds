@@ -3,7 +3,7 @@
 <f:section name="main">
 	<f:for each="{pipes}" as="pipe" iteration="pipeIterator">
 		<article>
-			<h3><f:link.external uri="{pipe.url}">{pipe.title}</f:link.external></h3>
+			<h3><f:link.external uri="{pipe.url}">{pipe.title -> f:format.raw()}</f:link.external></h3>
 			<p>
 				<f:if condition="{pipe.content}">
 					<f:format.crop maxCharacters="200" respectWordBoundaries="TRUE" append=" …" respectHtml="FALSE">{pipe.content -> f:format.stripTags()}</f:format.crop>
