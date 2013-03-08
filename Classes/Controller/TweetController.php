@@ -86,7 +86,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->oauthToken = $twitterSettings['auth']['oauthToken'];
 		$this->oauthTokenSecret = $twitterSettings['auth']['oauthTokenSecret'];
 
-		$this->user = $twitterSettings['user'];
+		$this->user = $twitterSettings['userName'];
 	}
 
 	/**

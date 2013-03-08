@@ -24,7 +24,7 @@ plugin.tx_dhfeeds {
 				oauth_token_secret = your_oauth_token_secret
 			}
 			# cat=plugin.tx_dhfeeds//a; type=string; label=Twitter Username
-			user = DARIAHeu
+			userName = DARIAHeu
 		}
 	}
 }
