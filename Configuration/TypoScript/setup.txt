@@ -19,7 +19,7 @@ plugin.tx_dhfeeds {
 				oauthToken = {$plugin.tx_dhfeeds.settings.twitter.auth.oauthToken}
 				oauthToken_secret = {$plugin.tx_dhfeeds.settings.twitter.auth.oauthToken_secret}
 			}
-			listId = {$plugin.tx_dhfeeds.settings.twitter.listId}
+			user = {$plugin.tx_dhfeeds.settings.twitter.user}
 		}
 		blogs {
 			# always in this format: identifier = feedUrl

@@ -67,11 +67,11 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	protected $tweetRepository;
 
 	/**
-	 * Id of the twitter list to follow
+	 * Username of the twitter user whoms timeline should be shown
 	 *
-	 * @var int
+	 * @var string
 	 */
-	protected $listId;
+	protected $user;
 
 	/**
 	 * Iniitializes some defaults
@@ -86,7 +86,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->oauthToken = $twitterSettings['auth']['oauthToken'];
 		$this->oauthTokenSecret = $twitterSettings['auth']['oauthTokenSecret'];
 
-		$this->listId = $twitterSettings['listId'];
+		$this->user = $twitterSettings['user'];
 	}
 
 	/**
@@ -107,7 +107,7 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$oAuth = new \TwitterOAuth($this->consumerKey, $this->consumerSecret, $this->oauthToken, $this->oauthTokenSecret);
 
 			// get desired statuses
-			$statuses = $oAuth->get('/lists/statuses', array('list_id' => $this->listId));
+			$statuses = $oAuth->get('/statuses/user_timeline', array('screen_name' => $this->user));
 			$tweets = array();
 			foreach ($statuses as $status) {
 				if ($status->user->protected === FALSE) {

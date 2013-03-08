@@ -23,8 +23,8 @@ plugin.tx_dhfeeds {
 				# cat=plugin.tx_dhfeeds//a; type=string; label=Twitter OAuth secret
 				oauth_token_secret = your_oauth_token_secret
 			}
-			# cat=plugin.tx_dhfeeds//a; type=int; label=Twitter List ID
-			listId = yourListId
+			# cat=plugin.tx_dhfeeds//a; type=string; label=Twitter Username
+			user = DARIAHeu
 		}
 	}
 }
