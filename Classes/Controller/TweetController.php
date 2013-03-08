@@ -107,7 +107,10 @@ class TweetController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$oAuth = new \TwitterOAuth($this->consumerKey, $this->consumerSecret, $this->oauthToken, $this->oauthTokenSecret);
 
 			// get desired statuses
-			$statuses = $oAuth->get('/statuses/user_timeline', array('screen_name' => $this->user));
+			$statuses = $oAuth->get('/statuses/user_timeline', array(
+				'screen_name' => $this->user,
+				'include_rts' => 'true'
+			));
 			$tweets = array();
 			foreach ($statuses as $status) {
 				if ($status->user->protected === FALSE) {
