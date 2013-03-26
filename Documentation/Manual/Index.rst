@@ -22,9 +22,9 @@ Configuration
 
 The configuration splits into two sections - Twitter and Feeds.
 
-For Twitter add your credentials to the corresponding TypoScript constants. Also provide the list id from twitter that you want to follow.
+For Twitter, add your credentials to the corresponding TypoScript constants. Also provide the list id from twitter that you want to follow.
 
-The blog / feed configuration is quite straigt forward. Add your RSS feed urls into your TypoScript template with a unique identifier.
+The blog / feed configuration is quite straight forward. Add your RSS feed urls into your TypoScript template with a unique identifier.
 
 Example:
 
